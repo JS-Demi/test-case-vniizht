@@ -1,7 +1,13 @@
+import TrainInfo from './features/trains/TrainInfo'
+import TrainsList from './features/trains/TrainsList'
+
 function App() {
 	return (
 		<>
-			<div>TEST CASE</div>
+			<div className='container'>
+				<TrainsList />
+				<TrainInfo />
+			</div>
 		</>
 	)
 }
