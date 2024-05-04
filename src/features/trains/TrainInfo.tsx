@@ -2,9 +2,9 @@ import { Field, FieldArray, Form, Formik } from 'formik'
 import { ChangeEvent, FC } from 'react'
 import { useAppSelector } from '../../app/hooks'
 import styles from './TrainsPage.module.scss'
-import { DataEnum, validate, validationSchema } from './schemas'
-import { selectActiveInfo } from './trainsSlice'
-import { ICharacterisctic } from './types'
+import { DataEnum, validate, validationSchema } from './helpers/schemas'
+import { selectActiveInfo } from './store/trainsSlice'
+import { ICharacterisctic } from './interfaces/types'
 import { useTranslation } from 'react-i18next'
 
 interface IValues {

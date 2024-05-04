@@ -1,8 +1,8 @@
 import { FC } from 'react'
 import { useAppDispatch } from '../../app/hooks'
 import styles from './TrainsPage.module.scss'
-import { useGetTrainsQuery } from './trainsApi'
-import { setActiveInfo } from './trainsSlice'
+import { useGetTrainsQuery } from './store/trainsApi'
+import { setActiveInfo } from './store/trainsSlice'
 import { useTranslation } from 'react-i18next'
 
 const TrainsList: FC = () => {

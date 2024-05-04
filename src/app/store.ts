@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
-import trainsReducer from '../features/trains/trainsSlice'
-import { trainsApi } from '../features/trains/trainsApi'
+import trainsReducer from '../features/trains/store/trainsSlice'
+import { trainsApi } from '../features/trains/store/trainsApi'
 
 export const store = configureStore({
 	reducer: {

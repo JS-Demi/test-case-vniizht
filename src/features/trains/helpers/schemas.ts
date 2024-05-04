@@ -1,6 +1,6 @@
 import { ChangeEvent } from 'react'
 import * as Yup from 'yup'
-import styles from './TrainsPage.module.scss'
+import styles from '../TrainsPage.module.scss'
 
 export enum DataEnum {
 	ENGINE_AMPERAGE = 'engineAmperage',

@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { ITrain } from './types'
-import { RootState } from '../../app/store'
+import { ITrain } from '../interfaces/types'
+import { RootState } from '../../../app/store'
 
 interface TrainsState {
 	activeInfo: ITrain | null
