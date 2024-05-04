@@ -1,15 +1,12 @@
-import React, { FC } from 'react'
-import { useAppDispatch, useAppSelector } from '../../app/hooks'
-import { useGetTrainsQuery } from './trainsApi'
-import { selectActiveInfo, setActiveInfo } from './trainsSlice'
+import { FC } from 'react'
+import { useAppDispatch } from '../../app/hooks'
 import styles from './TrainsPage.module.scss'
-
-// interface TrainsListProps {}
+import { useGetTrainsQuery } from './trainsApi'
+import { setActiveInfo } from './trainsSlice'
 
 const TrainsList: FC = () => {
 	const dispatch = useAppDispatch()
-	const activeInfo = useAppSelector(selectActiveInfo)
-	const { data: trains, isLoading, isError } = useGetTrainsQuery()
+	const { data: trains, isLoading } = useGetTrainsQuery()
 
 	const handleShowInfo = (targetName: string) => {
 		const train = trains?.find(({ name }) => name === targetName) ?? null
@@ -18,18 +15,19 @@ const TrainsList: FC = () => {
 
 	return (
 		<>
-			<div className={styles.wrapper_trains}>
-				<table>
-					<caption>Поезда</caption>
-					<thead>
-						<tr>
-							<th>Название</th>
-							<th>Описание</th>
-						</tr>
-					</thead>
-					<tbody>
-						{trains &&
-							trains.map(({ name, description }) => (
+			{isLoading && <span className={styles.loader}></span>}
+			{trains && (
+				<div className={styles.wrapper_trains}>
+					<table>
+						<caption>Поезда</caption>
+						<thead>
+							<tr>
+								<th>Название</th>
+								<th>Описание</th>
+							</tr>
+						</thead>
+						<tbody>
+							{trains.map(({ name, description }) => (
 								<tr
 									key={name}
 									id={name}
@@ -40,9 +38,10 @@ const TrainsList: FC = () => {
 									<td>{description}</td>
 								</tr>
 							))}
-					</tbody>
-				</table>
-			</div>
+						</tbody>
+					</table>
+				</div>
+			)}
 		</>
 	)
 }

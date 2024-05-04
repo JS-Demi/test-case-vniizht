@@ -32,7 +32,6 @@ export const validationSchema = Yup.object().shape({
 })
 
 export const validate = ({ target }: ChangeEvent<HTMLInputElement>, type: DataEnum): void => {
-	console.log(target)
 	switch (type) {
 		case DataEnum.ENGINE_AMPERAGE:
 			{

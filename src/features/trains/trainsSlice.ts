@@ -3,15 +3,7 @@ import { ITrain } from './types'
 import { RootState } from '../../app/store'
 
 interface TrainsState {
-	activeInfo: {
-		name: string
-		description: string
-		characteristics: {
-			speed: number
-			force: number
-			engineAmperage: number
-		}[]
-	} | null
+	activeInfo: ITrain | null
 }
 
 const initialState: TrainsState = {

@@ -36,8 +36,7 @@ const TrainInfo: FC = () => {
 						validationSchema={validationSchema}
 						enableReinitialize
 					>
-						{({ isValid, handleChange, errors }) => {
-							console.log(isValid, errors)
+						{({ isValid, handleChange }) => {
 							return (
 								<Form className={styles.wrapper_info}>
 									<FieldArray name='characteristics'>
