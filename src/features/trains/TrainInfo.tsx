@@ -5,12 +5,14 @@ import styles from './TrainsPage.module.scss'
 import { DataEnum, validate, validationSchema } from './schemas'
 import { selectActiveInfo } from './trainsSlice'
 import { ICharacterisctic } from './types'
+import { useTranslation } from 'react-i18next'
 
 interface IValues {
 	characteristics: ICharacterisctic[]
 }
 const TrainInfo: FC = () => {
 	const activeInfo = useAppSelector(selectActiveInfo)
+	const { t } = useTranslation()
 
 	const customHandleChange =
 		(formikHandleChange: (e: ChangeEvent<HTMLInputElement>) => void, type: DataEnum) =>
@@ -43,13 +45,13 @@ const TrainInfo: FC = () => {
 										{() => (
 											<div className={styles.wrapper_table}>
 												<table>
-													<caption>Характеристики</caption>
+													<caption>{t('characteristics')}</caption>
 													<caption>{activeInfo.name}</caption>
 													<thead>
 														<tr>
-															<th>Ток двигателя</th>
-															<th>Сила тяги</th>
-															<th>Скорость</th>
+															<th>{t('engineAmperage')}</th>
+															<th>{t('force')}</th>
+															<th>{t('speed')}</th>
 														</tr>
 													</thead>
 													<tbody>
@@ -89,7 +91,7 @@ const TrainInfo: FC = () => {
 										)}
 									</FieldArray>
 									<button className={styles.btn} disabled={!isValid} type='submit'>
-										Отправить данные
+										{t('submit')}
 									</button>
 								</Form>
 							)

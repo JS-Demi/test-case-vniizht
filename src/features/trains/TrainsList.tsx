@@ -3,10 +3,12 @@ import { useAppDispatch } from '../../app/hooks'
 import styles from './TrainsPage.module.scss'
 import { useGetTrainsQuery } from './trainsApi'
 import { setActiveInfo } from './trainsSlice'
+import { useTranslation } from 'react-i18next'
 
 const TrainsList: FC = () => {
 	const dispatch = useAppDispatch()
 	const { data: trains, isLoading } = useGetTrainsQuery()
+	const { t } = useTranslation()
 
 	const handleShowInfo = (targetName: string) => {
 		const train = trains?.find(({ name }) => name === targetName) ?? null
@@ -19,11 +21,11 @@ const TrainsList: FC = () => {
 			{trains && (
 				<div className={styles.wrapper_trains}>
 					<table>
-						<caption>Поезда</caption>
+						<caption>{t('trains')}</caption>
 						<thead>
 							<tr>
-								<th>Название</th>
-								<th>Описание</th>
+								<th>{t('name')}</th>
+								<th>{t('description')}</th>
 							</tr>
 						</thead>
 						<tbody>
