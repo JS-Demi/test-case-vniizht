@@ -8,7 +8,7 @@ git clone <repository>
 ```
 Установите все зависимости и запустите сборку
 ```bash
-npm ci && npm run build
+npm install && npm run build
 ```
 Запустите production версию локально
 ```bash
